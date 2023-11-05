@@ -27,8 +27,15 @@ model User {
 }
 
 model Order {
-  id      Int    @id @default(autoincrement())
-  name    String
-  price   Float
+  id Int @id @default(autoincrement())
+
+  name String
+
+  price Float
+
   phoneNo String
+
+  createdAt DateTime @default(now())
+
+  updatedAt DateTime @updatedAt
 }
