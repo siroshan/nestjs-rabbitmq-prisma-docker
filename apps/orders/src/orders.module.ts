@@ -3,7 +3,8 @@ import { OrdersController } from './orders.controller';
 import { OrdersService } from './orders.service';
 import * as Joi from 'joi';
 import { ConfigModule } from '@nestjs/config';
-import { PrismaModule } from '@app/common';
+import { PrismaModule, RmqModule } from '@app/common';
+import { BILLING_SERVICE } from './constants/service';
 
 @Module({
   imports: [
@@ -16,6 +17,9 @@ import { PrismaModule } from '@app/common';
       envFilePath: './app/orders/.env',
     }),
     PrismaModule,
+    RmqModule.register({
+      name: BILLING_SERVICE,
+    }),
   ],
   controllers: [OrdersController],
   providers: [OrdersService],

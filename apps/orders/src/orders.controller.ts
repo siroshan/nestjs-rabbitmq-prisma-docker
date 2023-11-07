@@ -29,11 +29,11 @@ export class OrdersController {
     return this.ordersService.findAll();
   }
 
-  // @Get(':id')
-  // @ApiCreatedResponse({ type: OrderEntity, isArray: true })
-  // findOne(@Param('id', ParseIntPipe) id: number) {
-  //   return this.ordersService.findOne(id);
-  // }
+  @Get(':id')
+  @ApiCreatedResponse({ type: OrderEntity, isArray: true })
+  findOne(@Param('id', ParseIntPipe) id: number) {
+    return this.ordersService.findOne(id);
+  }
 
   // @Delete(':id')
   // @ApiOkResponse({ type: OrderEntity })
